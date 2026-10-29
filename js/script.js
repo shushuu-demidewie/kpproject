@@ -1,11 +1,11 @@
-(function() {
+(function () {
   if (window.__TIKTOK_CAKE_INITIALIZED__) return;
   window.__TIKTOK_CAKE_INITIALIZED__ = true;
 
   // DOM Elements
   const canvas = document.getElementById('ambientCanvas');
   const ctx = canvas.getContext('2d');
-  
+
   const candle = document.getElementById('interactiveCandle');
   const blowBtn = document.getElementById('blowBtn');
   const blowBtnLabel = document.getElementById('blowBtnLabel');
@@ -54,7 +54,7 @@
   // Xóa cache lời chúc cũ để web hiển thị 100% đúng nội dung bạn viết trong HTML
   try {
     localStorage.removeItem('birthday_princess_data');
-  } catch (e) {}
+  } catch (e) { }
 
   // 2. Canvas Nền: Mưa trái tim bay & đốm sáng lung linh (Tối ưu độ nét Retina & 60fps Mobile)
   let width, height;
@@ -233,7 +233,7 @@
         osc.start(now + 0.1 + i * 0.08);
         osc.stop(now + 0.9 + i * 0.08);
       });
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Giai điệu sinh nhật lãng mạn (Happy Birthday Music Box)
@@ -377,8 +377,8 @@
       candle.classList.add('blown-out');
       isCandleLit = false;
       blowBtnLabel.textContent = 'Thắp lại nến';
-      actionHint.textContent = '🎉 Điều ước của em đã được gửi gắm vào các vì sao! ✨';
-      
+      actionHint.textContent = '🎉 Mong điều ước của cậu sẽ chạm tới các vì sao ✨';
+
       playBlowSound();
       launchHeartFireworks();
 
@@ -627,9 +627,9 @@
             osc.start(now2);
             osc.stop(now2 + 0.58);
           });
-        } catch (e) {}
+        } catch (e) { }
       }, 350);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Khởi động các luồng khói hình trái tim bay từ ống khói tàu
@@ -762,7 +762,7 @@
         osc.start(now + i * 0.08);
         osc.stop(now + 0.7 + i * 0.08);
       });
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function playPopSound() {
@@ -781,7 +781,7 @@
       g.connect(actx.destination);
       osc.start(now);
       osc.stop(now + 0.1);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function checkPassword() {
@@ -1020,7 +1020,7 @@
           osc.stop(now + 0.22 + i * 0.05);
         });
       }
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Kích hoạt toàn bộ hoạt cảnh rơi bánh theo chuỗi
