@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#f7d2d6">
+  <title>Mừng Ngày Sinh Nhật 🎂</title>
+
+  <!-- Google Fonts: Pacifico, Dancing Script & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- ===================================================
+       TRANG CHỜ: CHUYẾN TÀU SINH NHẬT VƯỢT BẦU TRỜI TIM
+       =================================================== -->
+  <div id="introWaitScreen" class="intro-wait-screen">
+    <!-- Nút bỏ qua nhanh -->
+    <button type="button" id="skipIntroBtn" class="skip-intro-btn" title="Vào thẳng phần mở khóa">
+      <span>Bỏ qua</span> ➜
+    </button>
+
+    <!-- Bầu trời đêm mộng mơ với ánh trăng và sao lấp lánh -->
+    <div class="sky-scenery">
+      <div class="sky-moon-glow">
+        <span class="moon-icon">🌙</span>
+      </div>
+      <div class="sky-stars-layer">
+        <span class="sky-star s1">✨</span>
+        <span class="sky-star s2">⭐</span>
+        <span class="sky-star s3">✨</span>
+        <span class="sky-star s4">🌟</span>
+        <span class="sky-star s5">✨</span>
+        <span class="sky-star s6">⭐</span>
+        <span class="sky-star s7">💖</span>
+        <span class="sky-star s8">✨</span>
+        <span class="sky-star s9">⭐</span>
+        <span class="sky-star s10">🌟</span>
+      </div>
+
+      <!-- Những đám mây kẹo ngọt bồng bềnh -->
+      <div class="sky-cloud cloud-1">☁️</div>
+      <div class="sky-cloud cloud-2">☁️</div>
+      <div class="sky-cloud cloud-3">☁️</div>
+      <div class="sky-cloud cloud-4">☁️</div>
+    </div>
+
+    <!-- Hộp thông điệp chào đón lãng mạn -->
+    <div class="intro-content-card">
+      <div class="intro-ticket-badge">
+        <span>🎫 CHUYẾN TÀU ĐẶC BIỆT</span>
+      </div>
+      <h1 class="intro-title">Chuyến Tàu Sinh Nhật 🚂</h1>
+      <p class="intro-subtitle">Mang theo ngàn điều ước và một món quà bí mật dành riêng cho cậu...</p>
+
+      <!-- Nút lên tàu nhận quà -->
+      <button type="button" id="introStartBtn" class="intro-start-btn">
+        <span class="btn-train-icon">🚂</span>
+        <span>Lên tàu </span>
+        <span class="btn-sparkle">✨</span>
+      </button>
+
+      <!-- Thanh tiến trình hành trình -->
+      <div class="intro-progress-wrap">
+        <div class="intro-progress-track">
+          <div id="introProgressBar" class="intro-progress-bar"></div>
+        </div>
+        <p id="introStatusText" class="intro-status-text">Đoàn tàu đang vượt qua bầu trời ngập tràn yêu thương... 💕</p>
+      </div>
+    </div>
+
+    <!-- VÙNG ĐƯỜNG RAY VÀ CHIẾC TÀU HỎA HOẠT HÌNH LƯỚT QUA BẦU TRỜI -->
+    <div class="train-track-stage">
+      <!-- Đường ray ánh sáng uốn lượn mềm mại trên mây -->
+      <svg class="sky-track-svg" viewBox="0 0 1600 70" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="railGlowGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ff80ab" stop-opacity="0.3" />
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#ff80ab" stop-opacity="0.3" />
+          </linearGradient>
+        </defs>
+        <!-- Thanh ray kép phát sáng lung linh -->
+        <path class="rail-glow-line" d="M 0,32 Q 400,22 800,32 T 1600,32" stroke="url(#railGlowGrad)" stroke-width="6"
+          fill="none" opacity="0.6" />
+        <path class="rail-line top" d="M 0,30 Q 400,20 800,30 T 1600,30" stroke="#ffb2c9" stroke-width="2.5"
+          fill="none" />
+        <path class="rail-line bottom" d="M 0,40 Q 400,30 800,40 T 1600,40" stroke="#f06292" stroke-width="2.5"
+          fill="none" />
+        <!-- Tà vẹt đường ray rải đều -->
+        <g class="rail-ties">
+          <line x1="50" y1="28" x2="50" y2="42" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="120" y1="26" x2="120" y2="40" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="190" y1="25" x2="190" y2="39" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="260" y1="24" x2="260" y2="38" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="330" y1="24" x2="330" y2="38" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="400" y1="25" x2="400" y2="39" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="470" y1="27" x2="470" y2="41" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="540" y1="29" x2="540" y2="43" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="610" y1="31" x2="610" y2="45" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="680" y1="32" x2="680" y2="46" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="750" y1="33" x2="750" y2="47" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="820" y1="33" x2="820" y2="47" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="890" y1="32" x2="890" y2="46" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="960" y1="31" x2="960" y2="45" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1030" y1="29" x2="1030" y2="43" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1100" y1="27" x2="1100" y2="41" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1170" y1="26" x2="1170" y2="40" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1240" y1="25" x2="1240" y2="39" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1310" y1="26" x2="1310" y2="40" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1380" y1="28" x2="1380" y2="42" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1450" y1="30" x2="1450" y2="44" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+          <line x1="1520" y1="32" x2="1520" y2="46" stroke="#ffd54f" stroke-width="2.5" opacity="0.8" />
+        </g>
+      </svg>
+
+      <!-- Container đoàn tàu chuyển động lướt qua màn hình -->
+      <div id="trainMover" class="train-mover">
+        <!-- Vùng khói hình trái tim bung nở từ ống khói tàu -->
+        <div id="heartSmokeEmitter" class="heart-smoke-emitter"></div>
+
+        <!-- SVG Đoàn tàu cổ tích siêu dễ thương -->
+        <svg id="dreamTrainSvg" class="dream-train-svg" viewBox="0 0 760 190" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="trainBeamGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#fff59d" stop-opacity="0.8" />
+              <stop offset="45%" stop-color="#fff59d" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#fff59d" stop-opacity="0" />
+            </linearGradient>
+
+            <linearGradient id="trainBoilerGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ff8da1" />
+              <stop offset="50%" stop-color="#f06292" />
+              <stop offset="100%" stop-color="#c2185b" />
+            </linearGradient>
+
+            <linearGradient id="trainRoofGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#d81b60" />
+              <stop offset="100%" stop-color="#880e4f" />
+            </linearGradient>
+
+            <!-- Họa tiết nan hoa bánh xe -->
+            <g id="wheelSpokes">
+              <line x1="0" y1="-18" x2="0" y2="18" stroke="#ffd54f" stroke-width="2.5" />
+              <line x1="-18" y1="0" x2="18" y2="0" stroke="#ffd54f" stroke-width="2.5" />
+              <line x1="-13" y1="-13" x2="13" y2="13" stroke="#ffd54f" stroke-width="2.5" />
+              <line x1="-13" y1="13" x2="13" y2="-13" stroke="#ffd54f" stroke-width="2.5" />
+            </g>
+          </defs>
+
+          <!-- LUỒNG SÁNG CHIẾU TỪ ĐÈN PHA ĐẦU TÀU -->
+          <polygon points="708,98 860,35 860,165" fill="url(#trainBeamGrad)" class="headlight-beam" />
+
+          <!-- TOA 3: TOA TÌNH YÊU (LOVE CARRIAGE) -->
+          <g class="train-car car-love">
+            <rect x="35" y="55" width="200" height="85" rx="10" fill="#f48fb1" stroke="#e91e63" stroke-width="2" />
+            <path d="M 30,55 C 30,40 240,40 240,55 Z" fill="url(#trainRoofGrad)" />
+            <rect x="25" y="52" width="220" height="6" rx="3" fill="#ffd54f" />
+            <rect x="30" y="136" width="210" height="8" rx="2" fill="#880e4f" />
+
+            <!-- Dây cờ sinh nhật tam giác nhiều màu -->
+            <path d="M 35,66 Q 85,78 135,66 Q 185,78 235,66" fill="none" stroke="#ffe082" stroke-width="2" />
+            <polygon points="50,68 62,68 56,82" fill="#ff4081" />
+            <polygon points="78,72 90,72 84,86" fill="#00e676" />
+            <polygon points="106,71 118,71 112,85" fill="#ffd54f" />
+            <polygon points="152,71 164,71 158,85" fill="#00e5ff" />
+            <polygon points="180,72 192,72 186,86" fill="#ffeb3b" />
+            <polygon points="208,68 220,68 214,82" fill="#e040fb" />
+
+            <!-- 3 Cửa sổ hình trái tim có đèn vàng ấm -->
+            <path d="M 72,98 A 12,12 0 0,0 60,86 A 12,12 0 0,0 48,98 Q 48,114 60,124 Q 72,114 72,98 Z" fill="#fff9c4"
+              stroke="#d81b60" stroke-width="2" />
+            <path d="M 147,98 A 12,12 0 0,0 135,86 A 12,12 0 0,0 123,98 Q 123,114 135,124 Q 147,114 147,98 Z"
+              fill="#fff9c4" stroke="#d81b60" stroke-width="2" />
+            <text x="135" y="110" font-size="14" text-anchor="middle">🎀</text>
+            <path d="M 222,98 A 12,12 0 0,0 210,86 A 12,12 0 0,0 198,98 Q 198,114 210,124 Q 222,114 222,98 Z"
+              fill="#fff9c4" stroke="#d81b60" stroke-width="2" />
+
+            <!-- Bánh xe toa 3 -->
+            <g class="wheel-group" transform="translate(80, 148)">
+              <circle cx="0" cy="0" r="18" fill="#4a148c" stroke="#ffd54f" stroke-width="3" />
+              <g class="wheel-spin">
+                <use href="#wheelSpokes" />
+              </g>
+              <circle cx="0" cy="0" r="5" fill="#ffd54f" />
+            </g>
+            <g class="wheel-group" transform="translate(190, 148)">
+              <circle cx="0" cy="0" r="18" fill="#4a148c" stroke="#ffd54f" stroke-width="3" />
+              <g class="wheel-spin">
+                <use href="#wheelSpokes" />
+              </g>
+              <circle cx="0" cy="0" r="5" fill="#ffd54f" />
+            </g>
+          </g>
+
+          <!-- KHỚP NỐI TOA 3 & TOA 2 -->
+          <rect x="235" y="126" width="30" height="8" rx="3" fill="#4e342e" stroke="#2e1c14" stroke-width="1.5" />
+          <circle cx="250" cy="130" r="3" fill="#ffd54f" />
+
+          <!-- TOA 2: TOA CHỞ QUÀ & BÓNG BAY -->
+          <g class="train-car car-gifts">
+            <!-- Dây bóng bay -->
+            <path d="M 330,36 Q 340,55 350,88" stroke="#f8bbd0" stroke-width="1.5" fill="none" />
+            <path d="M 360,25 Q 365,55 365,88" stroke="#f8bbd0" stroke-width="1.5" fill="none" />
+            <path d="M 390,32 Q 380,55 375,88" stroke="#f8bbd0" stroke-width="1.5" fill="none" />
+            <!-- Bóng bay trái tim -->
+            <path d="M 335,28 A 12,12 0 0,0 323,16 A 12,12 0 0,0 311,28 Q 311,42 323,50 Q 335,42 335,28 Z"
+              fill="#ff4081" />
+            <path d="M 372,18 A 12,12 0 0,0 360,6 A 12,12 0 0,0 348,18 Q 348,32 360,40 Q 372,32 372,18 Z"
+              fill="#ffd54f" />
+            <path d="M 402,24 A 12,12 0 0,0 390,12 A 12,12 0 0,0 378,24 Q 378,38 390,46 Q 402,38 402,24 Z"
+              fill="#e040fb" />
+
+            <!-- Các hộp quà sinh nhật -->
+            <rect x="275" y="48" width="48" height="42" rx="4" fill="#80deea" stroke="#00acc1" stroke-width="1.5" />
+            <rect x="296" y="48" width="6" height="42" fill="#ffd54f" />
+            <rect x="275" y="66" width="48" height="6" fill="#ffd54f" />
+            <text x="299" y="48" font-size="14" text-anchor="middle">🎀</text>
+
+            <rect x="330" y="32" width="60" height="58" rx="5" fill="#ff80ab" stroke="#c2185b" stroke-width="1.5" />
+            <rect x="357" y="32" width="8" height="58" fill="#ffe082" />
+            <rect x="330" y="56" width="60" height="8" fill="#ffe082" />
+            <text x="361" y="33" font-size="18" text-anchor="middle">🎁</text>
+
+            <rect x="400" y="44" width="50" height="46" rx="4" fill="#ffe082" stroke="#ffa000" stroke-width="1.5" />
+            <rect x="422" y="44" width="6" height="46" fill="#ff4081" />
+            <rect x="400" y="64" width="50" height="6" fill="#ff4081" />
+            <text x="425" y="44" font-size="14" text-anchor="middle">🎀</text>
+
+            <!-- Thùng xe chứa quà -->
+            <rect x="265" y="88" width="195" height="52" rx="8" fill="#ba68c8" stroke="#7b1fa2" stroke-width="2" />
+            <rect x="260" y="86" width="205" height="8" rx="4" fill="#ffd54f" />
+            <rect x="260" y="136" width="205" height="8" rx="2" fill="#4a148c" />
+
+            <!-- Huy hiệu bánh kem sinh nhật -->
+            <circle cx="362.5" cy="112" r="14" fill="#ffffff" opacity="0.95" />
+            <text x="362.5" y="117" font-size="15" text-anchor="middle">🎂</text>
+
+            <!-- Bánh xe toa 2 -->
+            <g class="wheel-group" transform="translate(305, 148)">
+              <circle cx="0" cy="0" r="18" fill="#4a148c" stroke="#ffd54f" stroke-width="3" />
+              <g class="wheel-spin">
+                <use href="#wheelSpokes" />
+              </g>
+              <circle cx="0" cy="0" r="5" fill="#ffd54f" />
+            </g>
+            <g class="wheel-group" transform="translate(420, 148)">
+              <circle cx="0" cy="0" r="18" fill="#4a148c" stroke="#ffd54f" stroke-width="3" />
+              <g class="wheel-spin">
+                <use href="#wheelSpokes" />
+              </g>
+              <circle cx="0" cy="0" r="5" fill="#ffd54f" />
+            </g>
+          </g>
+
+          <!-- KHỚP NỐI TOA 2 & ĐẦU TÀU -->
+          <rect x="460" y="126" width="30" height="8" rx="3" fill="#4e342e" stroke="#2e1c14" stroke-width="1.5" />
+          <circle cx="475" cy="130" r="3" fill="#ffd54f" />
+
+          <!-- ĐẦU TÀU HƠI NƯỚC (STEAM LOCOMOTIVE) -->
+          <g class="train-car locomotive">
+            <rect x="490" y="44" width="85" height="96" rx="8" fill="#f06292" stroke="#ad1457" stroke-width="2" />
+            <path d="M 484,44 C 484,28 580,28 580,44 Z" fill="url(#trainRoofGrad)" />
+            <rect x="480" y="42" width="105" height="6" rx="3" fill="#ffd54f" />
+
+            <rect x="506" y="58" width="48" height="42" rx="8" fill="#fff9c4" stroke="#d81b60" stroke-width="2" />
+            <text x="530" y="86" font-size="22" text-anchor="middle">👑</text>
+
+            <rect x="575" y="66" width="120" height="74" rx="8" fill="url(#trainBoilerGrad)" stroke="#ad1457"
+              stroke-width="2" />
+            <path d="M 695,66 C 715,66 715,140 695,140 Z" fill="#ad1457" />
+
+            <rect x="605" y="66" width="6" height="74" fill="#ffd54f" />
+            <rect x="645" y="66" width="6" height="74" fill="#ffd54f" />
+            <rect x="685" y="66" width="6" height="74" fill="#ffd54f" />
+
+            <polygon points="695,124 735,146 695,146" fill="#880e4f" stroke="#ffd54f" stroke-width="1.5" />
+            <line x1="705" y1="130" x2="705" y2="146" stroke="#ffd54f" stroke-width="2" />
+            <line x1="718" y1="138" x2="718" y2="146" stroke="#ffd54f" stroke-width="2" />
+
+            <rect x="696" y="86" width="16" height="24" rx="3" fill="#ffd54f" stroke="#ff8f00" stroke-width="1.5" />
+            <ellipse cx="712" cy="98" rx="4" ry="10" fill="#ffffff" />
+
+            <rect x="590" y="48" width="8" height="18" fill="#ffd54f" />
+            <circle cx="594" cy="46" r="5" fill="#ffb300" />
+
+            <!-- ỐNG KHÓI THẦN KỲ -->
+            <path d="M 654,66 L 658,26 L 682,26 L 686,66 Z" fill="#880e4f" stroke="#ad1457" stroke-width="2" />
+            <ellipse cx="670" cy="26" rx="14" ry="5" fill="#ffd54f" stroke="#ff8f00" stroke-width="1.5" />
+
+            <circle cx="705" cy="100" r="11" fill="#ff4081" stroke="#ffffff" stroke-width="2" />
+            <text x="705" y="105" font-size="12" text-anchor="middle">💖</text>
+
+            <g class="wheel-group" transform="translate(535, 146)">
+              <circle cx="0" cy="0" r="22" fill="#4a148c" stroke="#ffd54f" stroke-width="3.5" />
+              <g class="wheel-spin">
+                <use href="#wheelSpokes" />
+              </g>
+              <circle cx="0" cy="0" r="7" fill="#ffd54f" />
+            </g>
+            <g class="wheel-group" transform="translate(600, 146)">
+              <circle cx="0" cy="0" r="22" fill="#4a148c" stroke="#ffd54f" stroke-width="3.5" />
+              <g class="wheel-spin">
+                <use href="#wheelSpokes" />
+              </g>
+              <circle cx="0" cy="0" r="7" fill="#ffd54f" />
+            </g>
+            <line x1="535" y1="146" x2="600" y2="146" stroke="#ffe082" stroke-width="5" stroke-linecap="round"
+              class="train-drive-rod" />
+            <circle cx="535" cy="146" r="3.5" fill="#ff6f00" />
+            <circle cx="600" cy="146" r="3.5" fill="#ff6f00" />
+
+            <g class="wheel-group" transform="translate(675, 153)">
+              <circle cx="0" cy="0" r="15" fill="#4a148c" stroke="#ffd54f" stroke-width="2.5" />
+              <g class="wheel-spin">
+                <use href="#wheelSpokes" />
+              </g>
+              <circle cx="0" cy="0" r="5" fill="#ffd54f" />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÀN HÌNH KHÓA MẬT KHẨU TRƯỚC KHI VÀO APP -->
+  <div id="lockScreen" class="lock-screen-overlay">
+    <div class="lock-card" id="lockCard">
+      <div class="lock-icon-wrapper">
+        <span class="lock-icon">🔐</span>
+        <span class="lock-heart-badge">💖</span>
+      </div>
+      <h2 class="lock-title">Món Quà Bí Mật 🎁</h2>
+      <p class="lock-hint">💡 Gợi ý: <span>sinh nhật của cậu</span></p>
+
+      <form id="lockForm" class="lock-form" autocomplete="off" onsubmit="event.preventDefault();">
+        <div class="pin-display">
+          <input type="password" id="passwordInput" class="pin-input" maxlength="4" placeholder="••••"
+            inputmode="numeric" autofocus required>
+        </div>
+        <p id="lockErrorMsg" class="lock-error-msg"></p>
+
+        <button type="submit" id="unlockSubmitBtn" class="unlock-btn">
+          <span>Mở khóa quà</span> ✨
+        </button>
+      </form>
+
+      <!-- Bàn phím số bấm nhanh tiện cho cả điện thoại lẫn PC -->
+      <div class="keypad-grid">
+        <button type="button" class="num-key" data-val="1">1</button>
+        <button type="button" class="num-key" data-val="2">2</button>
+        <button type="button" class="num-key" data-val="3">3</button>
+        <button type="button" class="num-key" data-val="4">4</button>
+        <button type="button" class="num-key" data-val="5">5</button>
+        <button type="button" class="num-key" data-val="6">6</button>
+        <button type="button" class="num-key" data-val="7">7</button>
+        <button type="button" class="num-key" data-val="8">8</button>
+        <button type="button" class="num-key" data-val="9">9</button>
+        <button type="button" class="num-key key-clear" id="keyClear">C</button>
+        <button type="button" class="num-key" data-val="0">0</button>
+        <button type="button" class="num-key key-del" id="keyDel">⌫</button>
+      </div>
+
+      <!-- Nút xem lại chuyến tàu sinh nhật nếu muốn -->
+      <button type="button" id="backToIntroBtn" class="back-to-intro-link" title="Xem lại hoạt cảnh chuyến tàu">
+        🚂 Xem lại chuyến tàu sinh nhật
+      </button>
+    </div>
+  </div>
+
+  <!-- MÀN HÌNH MINI GAME TRANG TRÍ BÁNH KEM (TRƯỚC KHI VÀO MÀN HÌNH CHÍNH) -->
+  <div id="decorGameScreen" class="decor-game-overlay">
+    <div class="decor-game-card">
+      <div class="game-header">
+        <span class="game-badge">✨ Mini Game Thú Vị ✨</span>
+        <h2 class="game-title">Tự Tay Trang Trí Bánh Kem 🎂</h2>
+        <p class="game-subtitle">Chọn hương vị, lớp kem và topping ngọt ngào nhất cho sinh nhật nhé!</p>
+      </div>
+
+      <!-- Preview Bánh Kem Mini Game -->
+      <div class="game-preview-area">
+        <svg id="previewCakeSvg" viewBox="0 0 600 480" class="game-preview-svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <radialGradient id="gameFlameGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff176" stop-opacity="0.95" />
+              <stop offset="35%" stop-color="#ff80ab" stop-opacity="0.75" />
+              <stop offset="70%" stop-color="#ff4081" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#f8bbd0" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="gameFlameGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#f50057" />
+              <stop offset="35%" stop-color="#ff4081" />
+              <stop offset="75%" stop-color="#ffb74d" />
+              <stop offset="100%" stop-color="#fffde7" />
+            </linearGradient>
+            <pattern id="gameCandlePattern" width="18" height="18" patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)">
+              <rect width="18" height="18" fill="#ffffff" />
+              <rect id="gameCandleStripe" x="0" width="9" height="18" fill="#f48fb1" />
+            </pattern>
+          </defs>
+
+          <!-- Bóng bánh -->
+          <ellipse cx="300" cy="425" rx="195" ry="16" fill="#e2a1aa" opacity="0.45" />
+
+          <!-- Tầng dưới -->
+          <g id="gameTierBottomGroup" class="cake-layer-group layer-tier-bottom">
+            <rect id="gameTierBottom" x="110" y="310" width="380" height="98" rx="14" fill="#f8b0c0" />
+            <rect id="gameStripeBottom" x="110" y="348" width="380" height="23" rx="4" fill="#eb4d7f" />
+          </g>
+
+          <!-- Tầng trên -->
+          <g id="gameTierTopGroup" class="cake-layer-group layer-tier-top">
+            <rect id="gameTierTop" x="165" y="235" width="270" height="85" rx="12" fill="#f8b0c0" />
+            <rect id="gameStripeTop" x="165" y="268" width="270" height="20" rx="4" fill="#eb4d7f" />
+            <ellipse id="gameTierTopSurface" cx="300" cy="237" rx="122" ry="5.5" fill="#ffffff" opacity="0.22" />
+          </g>
+
+          <!-- Lớp kem phủ chảy (Tầng 1 & Tầng 2) -->
+          <g id="gameFrostingGroup" class="cake-layer-group layer-frosting">
+            <!-- Lớp kem phủ tầng 1 (Tầng dưới) -->
+            <path id="gameFrostingTierBottom" d="
+              M 103,310
+              C 103,304 108,302 120,302
+              L 165,302
+              L 165,310
+              L 435,310
+              L 435,302
+              L 480,302
+              C 492,302 497,304 497,310
+              C 497,322 492,332 485,338
+              C 480,342 472,342 466,330
+              C 460,318 452,316 444,332
+              C 436,350 426,354 418,328
+              C 412,316 402,316 396,332
+              C 388,354 378,356 370,328
+              C 364,316 354,316 348,334
+              C 340,356 330,358 322,330
+              C 316,316 306,316 300,336
+              C 292,360 280,362 272,330
+              C 266,316 256,316 248,334
+              C 240,354 230,356 222,328
+              C 216,316 206,316 198,336
+              C 190,352 180,354 172,328
+              C 166,316 156,316 148,332
+              C 140,348 130,350 122,328
+              C 116,318 108,318 103,310
+              Z" fill="#fdf8ea" />
+
+            <!-- Lớp kem phủ tầng 2 (Tầng trên) -->
+            <path id="gameFrostingPath" d="
+              M 158,235 
+              C 158,206 180,200 300,200 
+              C 420,200 442,206 442,235
+              C 442,252 435,274 427,284
+              C 422,290 415,290 410,274
+              C 406,262 400,258 393,275
+              C 386,294 378,302 370,302
+              C 362,302 357,286 354,268
+              C 352,255 344,255 339,271
+              C 332,292 324,312 316,312
+              C 309,312 305,296 300,275
+              C 297,262 290,260 285,272
+              C 278,288 272,315 264,315
+              C 257,315 253,285 249,268
+              C 246,252 238,250 233,264
+              C 224,288 218,320 208,320
+              C 199,320 195,296 191,274
+              C 188,256 179,250 174,265
+              C 168,278 160,260 158,235 
+              Z" fill="#fdf8ea" />
+
+            <!-- Highlight lấp lánh trên lớp kem tầng 2 và tầng 1 -->
+            <path d="M 195,206 Q 300,201 405,206 Q 300,212 195,206" fill="#ffffff" opacity="0.6" />
+            <path d="M 112,304 Q 138,301 160,304 Q 138,307 112,304" fill="#ffffff" opacity="0.45" />
+            <path d="M 440,304 Q 465,301 488,304 Q 465,307 440,304" fill="#ffffff" opacity="0.45" />
+          </g>
+
+          <!-- Nhóm Toppings trên mặt bánh trong game -->
+          <g id="gameToppingsGroup" class="cake-layer-group layer-toppings"></g>
+
+          <!-- Cây nến -->
+          <g id="gameCandleGroup" class="cake-layer-group layer-candle">
+            <rect id="gameCandleRect" x="293" y="152" width="14" height="52" rx="3.5" fill="url(#gameCandlePattern)"
+              stroke="#f48fb1" stroke-width="0.8" />
+            <line x1="300" y1="152" x2="300" y2="141" stroke="#4e342e" stroke-width="2.6" stroke-linecap="round" />
+            <circle cx="300" cy="120" r="38" fill="url(#gameFlameGlow)" class="flame-halo-glow" />
+            <path id="gameFlameShape" d="
+              M 300,135
+              C 292,126 278,118 278,105
+              C 278,92 289,84 300,94
+              C 311,84 322,92 322,105
+              C 322,118 308,126 300,135
+              Z" fill="url(#gameFlameGrad)" />
+          </g>
+        </svg>
+
+        <button type="button" id="replayAssembleBtn" class="replay-assemble-pill" title="Xem lại hoạt cảnh rơi bánh">
+          <span>🔄 Ráp lại bánh</span>
+        </button>
+      </div>
+
+      <!-- Khu vực chọn trang trí theo Tabs -->
+      <div class="decor-controls-panel">
+        <div class="decor-tab-buttons">
+          <button type="button" class="d-tab-btn active" data-tab="sponge">1. Vị cốt bánh</button>
+          <button type="button" class="d-tab-btn" data-tab="frosting">2. Kem phủ</button>
+          <button type="button" class="d-tab-btn" data-tab="toppings">3. Topping</button>
+          <button type="button" class="d-tab-btn" data-tab="candle">4. Cây nến</button>
+        </div>
+
+        <!-- Tab 1: Cốt bánh -->
+        <div class="d-tab-content active" id="tabContent-sponge">
+          <div class="options-grid">
+            <button type="button" class="opt-btn active" data-type="sponge" data-val="strawberry">
+              <span class="opt-swatch" style="background: #f8b0c0; border: 2px solid #eb4d7f;"></span>
+              <span class="opt-label">Dâu tây 🍓</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="sponge" data-val="chocolate">
+              <span class="opt-swatch" style="background: #8d6e63; border: 2px solid #5d4037;"></span>
+              <span class="opt-label">Socola 🍫</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="sponge" data-val="vanilla">
+              <span class="opt-swatch" style="background: #ffe0b2; border: 2px solid #ffb74d;"></span>
+              <span class="opt-label">Vani kem 🍦</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="sponge" data-val="matcha">
+              <span class="opt-swatch" style="background: #c8e6c9; border: 2px solid #81c784;"></span>
+              <span class="opt-label">Matcha 🍵</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 2: Kem phủ -->
+        <div class="d-tab-content" id="tabContent-frosting">
+          <div class="options-grid">
+            <button type="button" class="opt-btn active" data-type="frosting" data-val="white">
+              <span class="opt-swatch" style="background: #fdf8ea; border: 2px solid #e0d8be;"></span>
+              <span class="opt-label">Sữa tươi 🥛</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="frosting" data-val="pink">
+              <span class="opt-swatch" style="background: #ffb6c1; border: 2px solid #f06292;"></span>
+              <span class="opt-label">Dâu hồng 🍓</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="frosting" data-val="choco">
+              <span class="opt-swatch" style="background: #6d4c41; border: 2px solid #4e342e;"></span>
+              <span class="opt-label">Socola 🍫</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="frosting" data-val="taro">
+              <span class="opt-swatch" style="background: #e1bee7; border: 2px solid #ba68c8;"></span>
+              <span class="opt-label">Khoai môn 🫐</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 3: Topping -->
+        <div class="d-tab-content" id="tabContent-toppings">
+          <div class="options-grid">
+            <button type="button" class="opt-btn" data-type="topping" data-val="strawberry">
+              <span class="opt-icon">🍓</span>
+              <span class="opt-label">Dâu tươi</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="topping" data-val="crown">
+              <span class="opt-icon">👑</span>
+              <span class="opt-label">Vương miện</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="topping" data-val="hearts">
+              <span class="opt-icon">💖</span>
+              <span class="opt-label">Trái tim</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="topping" data-val="sprinkles">
+              <span class="opt-icon">🍬</span>
+              <span class="opt-label">Kẹo bi</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="topping" data-val="cherry">
+              <span class="opt-icon">🍒</span>
+              <span class="opt-label">Cherry đỏ</span>
+            </button>
+            <button type="button" id="clearToppingsBtn" class="opt-btn opt-btn-clear" title="Xóa bỏ toàn bộ topping">
+              <span class="opt-icon">🧹</span>
+              <span class="opt-label">Bỏ hết</span>
+            </button>
+          </div>
+          <p class="topping-hint">💡 Bấm để bật/tắt từng topping (có thể phối nhiều loại với nhau)</p>
+        </div>
+
+        <!-- Tab 4: Cây nến -->
+        <div class="d-tab-content" id="tabContent-candle">
+          <div class="options-grid">
+            <button type="button" class="opt-btn active" data-type="candle" data-val="pink">
+              <span class="opt-icon">🕯️</span>
+              <span class="opt-label">Sọc hồng</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="candle" data-val="gold">
+              <span class="opt-icon">✨</span>
+              <span class="opt-label">Ánh vàng</span>
+            </button>
+            <button type="button" class="opt-btn" data-type="candle" data-val="red">
+              <span class="opt-icon">❤️</span>
+              <span class="opt-label">Trái tim đỏ</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nút hoàn tất / chuyển bước / bỏ qua -->
+      <div class="game-action-footer">
+        <button type="button" id="skipDecorBtn" class="game-btn-text">Dùng mẫu gốc</button>
+        <div class="game-footer-actions">
+          <button type="button" id="nextStepBtn" class="game-btn-next">
+            <span>Tiếp: Phủ kem</span> ➜
+          </button>
+          <button type="button" id="finishDecorBtn" class="game-btn-primary">
+            <span>Xong rồi, ngắm bánh thôi!</span> 🎉
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Canvas nền trái tim và đốm sáng lấp lánh (Sparkles & Floating Hearts Rain) -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Nút điều khiển góc phải trên (Đĩa nhạc quay & Nút đổi lời chúc & Nút trang trí lại) -->
+  <div class="top-controls">
+    <button id="musicToggleBtn" class="music-disc-btn" title="Bật/Dừng nhạc">
+      <span class="disc-icon">💿</span>
+      <span class="music-wave">
+        <i></i><i></i><i></i><i></i>
+      </span>
+    </button>
+    <button id="openDecorGameBtn" class="icon-pill-btn" title="Trang trí lại bánh kem">
+      🎨 <span class="btn-label-text">Làm bánh</span>
+    </button>
+    <button id="reopenIntroBtn" class="icon-pill-btn" title="Xem lại chuyến tàu sinh nhật">
+      🚂 <span class="btn-label-text">Chuyến tàu</span>
+    </button>
+  </div>
+
+  <!-- KHUNG CHÍNH CĂN GIỮA MÀN HÌNH (Y hệt video TikTok) -->
+  <main class="main-stage">
+
+    <!-- Tiêu đề mở đầu ngọt ngào -->
+    <div class="cake-header">
+      <h2 class="sub-greeting" id="subGreeting">Dành cho</h2>
+      <h1 class="target-name" id="displayRecipientName">pt</h1>
+    </div>
+
+    <!-- VÙNG BÁNH KEM CHÍNH -->
+    <div class="cake-scene-box">
+
+      <!-- Các trái tim nghệ thuật bay lơ lửng quanh bánh như video gốc -->
+      <div class="decor-hearts-container">
+        <span class="d-heart dh-1"></span>
+        <span class="d-heart dh-2"></span>
+        <span class="d-heart dh-3"></span>
+        <span class="d-heart dh-4"></span>
+        <span class="d-heart dh-5"></span>
+        <span class="d-heart dh-6"></span>
+        <span class="d-heart dh-7"></span>
+        <span class="d-heart dh-8"></span>
+      </div>
+
+      <!-- Bánh kem SVG với ngọn lửa hình trái tim độc đáo -->
+      <div class="cake-graphic-wrapper">
+        <svg id="cakeSvg" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" class="cake-svg"
+          preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <!-- Ánh sáng ngọn lửa trái tim hồng cam ấm áp -->
+            <radialGradient id="heartFlameGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff176" stop-opacity="0.95" />
+              <stop offset="35%" stop-color="#ff80ab" stop-opacity="0.75" />
+              <stop offset="70%" stop-color="#ff4081" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#f8bbd0" stop-opacity="0" />
+            </radialGradient>
+
+            <linearGradient id="heartFlameBodyGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#f50057" />
+              <stop offset="35%" stop-color="#ff4081" />
+              <stop offset="75%" stop-color="#ffb74d" />
+              <stop offset="100%" stop-color="#fffde7" />
+            </linearGradient>
+
+            <!-- Họa tiết sọc nến hồng phấn và trắng -->
+            <pattern id="candyCandlePattern" width="18" height="18" patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)">
+              <rect width="18" height="18" fill="#ffffff" />
+              <rect id="mainCandleStripe" x="0" width="9" height="18" fill="#f48fb1" />
+            </pattern>
+
+            <!-- Đổ bóng mềm mại cho bánh kem -->
+            <filter id="cakeDropShadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#e28a9b" flood-opacity="0.3" />
+            </filter>
+
+            <filter id="frostingShadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#cc687b" flood-opacity="0.25" />
+            </filter>
+          </defs>
+
+          <!-- Bóng dưới chân bánh -->
+          <ellipse cx="300" cy="435" rx="205" ry="18" fill="#e2a1aa" opacity="0.45" />
+
+          <!-- TẦNG DƯỚI (Bottom Tier) - Tầng bánh lớn -->
+          <g id="mainTierBottomGroup" class="cake-layer-group layer-tier-bottom" filter="url(#cakeDropShadow)">
+            <rect id="mainTierBottom" x="105" y="315" width="390" height="102" rx="16" fill="#f8b0c0" />
+            <!-- Vệt kem dâu hồng tươi nổi bật -->
+            <rect id="mainStripeBottom" x="105" y="354" width="390" height="24" rx="5" fill="#eb4d7f" />
+            <!-- Viền đáy bánh sáng màu -->
+            <rect x="112" y="405" width="376" height="8" rx="4" fill="#fad2dc" opacity="0.8" />
+          </g>
+
+          <!-- TẦNG TRÊN (Top Tier) - Tầng bánh nhỏ -->
+          <g id="mainTierTopGroup" class="cake-layer-group layer-tier-top">
+            <rect id="mainTierTop" x="160" y="235" width="280" height="88" rx="14" fill="#f8b0c0" />
+            <!-- Vệt dâu hồng đậm ở tầng trên -->
+            <rect id="mainStripeTop" x="160" y="270" width="280" height="21" rx="5" fill="#eb4d7f" />
+          </g>
+
+          <!-- LỚP KEM TRẮNG CHẢY (Icing Drips) TẦNG 1 & TẦNG 2 -->
+          <g id="mainFrostingGroup" class="cake-layer-group layer-frosting" filter="url(#frostingShadow)">
+            <!-- Lớp kem phủ tầng 1 (Tầng dưới) -->
+            <path id="mainFrostingTierBottom" d="
+              M 98,315
+              C 98,308 104,306 116,306
+              L 160,306
+              L 160,315
+              L 440,315
+              L 440,306
+              L 484,306
+              C 496,306 502,308 502,315
+              C 502,327 497,337 490,343
+              C 485,347 477,347 471,335
+              C 465,323 457,321 449,337
+              C 441,355 431,359 423,333
+              C 417,321 407,321 401,337
+              C 393,359 383,361 375,333
+              C 369,321 359,321 353,339
+              C 345,361 335,363 327,335
+              C 321,321 311,321 305,341
+              C 297,365 285,367 277,335
+              C 271,321 261,321 253,339
+              C 245,359 235,361 227,333
+              C 221,321 211,321 203,341
+              C 195,357 185,359 177,333
+              C 171,321 161,321 153,337
+              C 145,353 135,355 127,333
+              C 121,323 113,323 108,315
+              Z" fill="#fdf8ea" />
+
+            <!-- Lớp kem phủ tầng 2 (Tầng trên) -->
+            <path id="mainFrostingPath" d="
+              M 152,235 
+              C 152,204 175,198 300,198 
+              C 425,198 448,204 448,235
+              C 448,252 441,276 433,286
+              C 428,292 421,292 416,276
+              C 412,263 406,259 398,277
+              C 391,296 383,306 374,306
+              C 366,306 361,288 358,270
+              C 356,256 348,256 343,272
+              C 336,294 327,316 319,316
+              C 312,316 308,300 303,278
+              C 300,264 293,262 288,274
+              C 280,292 274,320 265,320
+              C 258,320 254,288 250,270
+              C 246,254 238,252 233,266
+              C 223,292 216,325 206,325
+              C 196,325 192,300 188,276
+              C 185,257 176,252 170,268
+              C 164,280 155,262 152,235 
+              Z" fill="#fdf8ea" />
+
+            <!-- Highlight lấp lánh trên vòm kem tầng 2 và tầng 1 -->
+            <path d="M 190,206 Q 300,200 410,206 Q 300,213 190,206" fill="#ffffff" opacity="0.65" />
+            <path d="M 108,308 Q 134,305 155,308 Q 134,311 108,308" fill="#ffffff" opacity="0.45" />
+            <path d="M 445,308 Q 470,305 492,308 Q 470,311 445,308" fill="#ffffff" opacity="0.45" />
+          </g>
+
+          <!-- Toppings trên bánh chính -->
+          <g id="mainToppingsGroup" class="cake-layer-group layer-toppings"></g>
+
+          <!-- CÂY NẾN VỚI NGỌN LỬA TRÁI TIM ĐẶC TRƯNG -->
+          <g id="interactiveCandle" class="candle-container cake-layer-group layer-candle"
+            title="Nhấp vào để thổi nến và ước nhé!">
+            <!-- Thân nến sọc hồng trắng -->
+            <rect id="mainCandleRect" x="293" y="148" width="14" height="54" rx="3.5" fill="url(#candyCandlePattern)"
+              stroke="#f48fb1" stroke-width="0.8" />
+
+            <!-- Bấc nến -->
+            <line x1="300" y1="148" x2="300" y2="136" stroke="#4e342e" stroke-width="2.6" stroke-linecap="round" />
+
+            <!-- Làn khói bay nhẹ khi thổi tắt -->
+            <g id="smokePuff" class="smoke-puff">
+              <path d="M 300,136 Q 293,118 303,104 T 295,78" fill="none" stroke="#cfd8dc" stroke-width="2.6"
+                stroke-linecap="round" opacity="0" />
+            </g>
+
+            <!-- NGỌN LỬA TRÁI TIM PHÁT SÁNG (HEART FLAME) -->
+            <g id="heartFlameGroup" class="heart-flame-wrapper">
+              <!-- Ánh hào quang hồng - vàng tỏa sáng -->
+              <circle cx="300" cy="116" r="46" fill="url(#heartFlameGlow)" class="flame-halo-glow" />
+
+              <!-- Thân ngọn lửa hình trái tim phát sáng -->
+              <path class="heart-flame-shape" d="
+                M 300,135
+                C 292,126 278,118 278,105
+                C 278,92 289,84 300,94
+                C 311,84 322,92 322,105
+                C 322,118 308,126 300,135
+                Z" fill="url(#heartFlameBodyGrad)" />
+
+              <!-- Điểm sáng vàng nhạt trung tâm hình trái tim nhỏ -->
+              <path d="
+                M 300,128
+                C 295,122 286,117 286,108
+                C 286,99 293,94 300,101
+                C 307,94 314,99 314,108
+                C 314,117 305,122 300,128
+                Z" fill="#ffffff" opacity="0.88" />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- HƯỚNG DẪN & NÚT TƯƠNG TÁC -->
+    <div class="action-footer">
+      <p class="instruction-text" id="actionHint">
+        ✨ Chạm vào ngọn nến để thổi ✨
+      </p>
+
+      <div class="btn-group">
+        <button id="blowBtn" class="magic-pill-btn primary-glow">
+          <span class="btn-emoji">🕯️</span>
+          <span id="blowBtnLabel">Thổi nến ước nguyện</span>
+        </button>
+        <button id="micBlowBtn" class="magic-pill-btn secondary-btn" title="Thổi nến bằng micro điện thoại">
+          <span class="btn-emoji">🎙️</span>
+          <span id="micBlowLabel">Thổi bằng mic</span>
+        </button>
+        <button id="openLetterBtn" class="magic-pill-btn secondary-btn">
+          <span class="btn-emoji">💌</span>
+          <span>Bức thư gửi cậu</span>
+        </button>
+        <button id="burstHeartsBtn" class="magic-pill-btn secondary-btn">
+          <span class="btn-emoji">💖</span>
+          <span>Thả tim</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- POPUP BỨC THƯ TÌNH CHÚC MỪNG SINH NHẬT (Love Letter Modal) -->
+  <div id="letterModal" class="letter-modal-backdrop">
+    <div class="letter-card">
+      <button id="closeLetterBtn" class="close-card-btn" title="Đóng">&times;</button>
+
+      <div class="letter-envelope-decor">
+        <span class="envelope-stamp">🎂</span>
+        <span class="envelope-heart">💖</span>
+      </div>
+
+      <div class="letter-content-scroll">
+        <h3 class="letter-salutation" id="letterSalutation">Gửi pt </h3>
+
+        <div class="letter-body" id="letterBodyText">
+          <p>Hôm nay là ngày đặc biệt của cậu.</p>
+          <p>Nhưng tớ không đủ can đảm để nói trực tiếp với cậu. Thôi thì chúc cậu sinh nhật vui vẻ bên gia đình và bạn bè. Chúc cậu tuổi mới ý nghĩa, hạnh phúc, đạt được những gì cậu mong muốn.</p>
+          <p>Mọi thứ hoàn toàn xứng đáng với nỗ lực của cậu, hãy luôn hết mình với đam mê của mình và hãy giữ gìn sức khỏe, mong rằng thế giới sẽ luôn đối xử nhẹ nhàng với cậu, cuối cùng chúc cậu hạnh phúc bên những người cậu thương.</p>
+        </div>
+
+        <div class="letter-closing">
+          <p class="sign-tag">Sinh nhật vui vẻ </p>
+          <p class="sender-name" id="displaySenderName">Mot nguoi ban</p>
+        </div>
+      </div>
+
+      <div class="letter-card-actions">
+        <button id="continuePartyBtn" class="card-action-btn primary-action">🎉 Chúc mừng sinh nhật !</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
